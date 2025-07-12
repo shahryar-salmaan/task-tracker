@@ -1,20 +1,9 @@
 import json
 import sys
 
-WELCOME_MSG: str = ( 
-      "Welcome to Task Tracker CLI\n"
-      "Type 'help' to see all commands"
-)
+from utils import show_banner
 
-width: int = 40 # Width for padding
-
-print("".center(width, "-")) # e.g. -----------
-
-for line in WELCOME_MSG.splitlines(): # Make a list of welcome strings
-
-  print(line.center(width, " ")) # Print lines with " " padding
-
-print("".center(width, "-")) # e.g. -----------
+show_banner()
 
 def add(input_as_list):
       task_description_as_list = input_as_list[1:] # Exclude the command (which is at index 0) and keep everything
