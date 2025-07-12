@@ -1,3 +1,5 @@
+import json
+
 WELCOME_MSG: str = ( 
       "Welcome to Task Tracker CLI\n"
       "Type 'help' to see all commands"
@@ -38,3 +40,7 @@ while True:
                   "description": task_description }
                   
     print("Task Dictionary: ", task_dict)
+    
+    with open("tasks.json", "w") as f:
+      json.dump(task_dict, f, indent=4)
+    
