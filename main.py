@@ -5,28 +5,48 @@ from utils import *
 
 show_banner()
 
+def get_input():
+    user_input: str = input("task-cli > ").lower().strip()
+    input_as_list = user_input.split(" ")
+    
+    return input_as_list
+  
+
 def add(input_as_list):
       task_description = get_description(input_as_list)
       
-      print("Task Description: ", task_description)
 
 def main():
   while True:
-    user_input: str = input("task-cli > ")
-    input_as_list = user_input.split(" ")
+    input_as_list = get_input()
     print(input_as_list)
     command = input_as_list[0]
-    
-    print("The command is: ", command)
     
     if command in ["exit", "0"]:
       print("Goodbye!")
       sys.exit()
     elif command == "add":  
       add(input_as_list)
-        
-      with open("tasks.json", "r") as f:
-        content = json.load(f)
-        print("Content:", content)
+    else:
+      print(f"{command}? That command isn't available.")
 
-main()
+        
+with open("tasks.json", "r") as f:
+      content = json.load(f)
+      return content
+      
+      sample_data = {
+  "id": "1",
+  "description": "Finish writing the blog post on JSON in Python",
+  "status": "in-progress",
+  "createdAt": "2025-07-12T14:30:00Z",
+  "updatedAt": "2025-07-12T16:00:00Z"
+}
+
+content.append(sample_data)
+
+with open("tasks.json", "w") as f:
+  json.dump(content, f, indent=4)
+
+print(content)
+    
