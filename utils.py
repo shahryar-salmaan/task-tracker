@@ -1,3 +1,6 @@
+import json
+import os
+
 WELCOME_MSG: str = ( 
       "Welcome to Task Tracker CLI\n"
       "Type 'help' to see all commands"
@@ -21,3 +24,11 @@ def get_description(input_as_list):
            task_description = task_description[1:-1] # if it already has quotaions marks, it removes it so that we can store it without quotes inside a string
       
       return task_description
+      
+def read():
+    if os.path.getsize("tasks.json") == 0:
+          return []
+          
+    with open("tasks.json", "r") as f:
+          content = json.load(f)
+          return content
