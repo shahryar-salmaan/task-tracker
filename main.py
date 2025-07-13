@@ -28,16 +28,23 @@ def main():
       add(input_as_list)
     else:
       print(f"{command}? That command isn't available.")
+        
+        
 
-def read():
-    with open("tasks.json", "r") as f:
-        content = json.load(f)
-        return content
-        
-        
+def generate_id():
+  
+    tasks = read()
+    id = []
+    
+    for task in tasks:
+       id.append(task["id"])
+       
+    print(max(id))
+
 tasks = read()
 
-print(json.dumps(tasks, indent=4))
+print(tasks)
+
       
 sample_data = {
   "id": "1",
