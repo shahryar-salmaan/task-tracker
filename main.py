@@ -19,7 +19,6 @@ def add(input_as_list):
 def main():
   while True:
     input_as_list = get_input()
-    print(input_as_list)
     command = input_as_list[0]
     
     if command in ["exit", "0"]:
@@ -30,23 +29,28 @@ def main():
     else:
       print(f"{command}? That command isn't available.")
 
+def read():
+    with open("tasks.json", "r") as f:
+        content = json.load(f)
+        return content
         
-with open("tasks.json", "r") as f:
-      content = json.load(f)
-      return content
+        
+tasks = read()
+
+print(json.dumps(tasks, indent=4))
       
-      sample_data = {
+sample_data = {
   "id": "1",
   "description": "Finish writing the blog post on JSON in Python",
   "status": "in-progress",
   "createdAt": "2025-07-12T14:30:00Z",
   "updatedAt": "2025-07-12T16:00:00Z"
 }
-
+"""
 content.append(sample_data)
 
 with open("tasks.json", "w") as f:
   json.dump(content, f, indent=4)
 
 print(content)
-    
+    """
