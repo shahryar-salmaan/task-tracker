@@ -32,3 +32,13 @@ def read():
     with open("tasks.json", "r") as f:
           content = json.load(f)
           return content
+          
+def generate_id():
+  
+    tasks = read()
+    
+    if not tasks:
+      return 1
+    else:
+      max_id = max(int(task["id"]) for task in tasks)
+      return max_id + 1
