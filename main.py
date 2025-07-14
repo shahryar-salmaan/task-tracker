@@ -1,6 +1,9 @@
 import json
 import sys
 
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
+
 from utils import *
 
 show_banner()
@@ -28,9 +31,19 @@ def main():
       add(input_as_list)
     else:
       print(f"{command}? That command isn't available.")
-        
-        
-print(generate_id())
+
+def get_time(type):
+  if type == "zulu":
+    return datetime.now(ZoneInfo("UTC")).isoformat().replace("+00:00", "Z")
+  elif type == "utc":
+    return datetime.now(ZoneInfo("UTC")).isoformat()
+  elif type == "bd":
+    return datetime.now(ZoneInfo("Asia/Dhaka")).isoformat()
+  
+print(get_time("zulu"))
+print(get_time("utc"))
+print(get_time("bd"))
+
       
 sample_data = {
   "id": "1",
