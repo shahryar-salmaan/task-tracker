@@ -34,11 +34,14 @@ def main():
 def generate_id():
   
     tasks = read()
-    max_id = max(int(task["id"]) for task in tasks)
     
-    print(max_id)
+    if not tasks:
+      return 1
+    else:
+      max_id = max(int(task["id"]) for task in tasks)
+      return max_id + 1
 
-generate_id()
+print(generate_id())
       
 sample_data = {
   "id": "1",
