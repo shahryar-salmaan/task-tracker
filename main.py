@@ -30,17 +30,6 @@ def main():
       print(f"{command}? That command isn't available.")
         
         
-
-def generate_id():
-  
-    tasks = read()
-    
-    if not tasks:
-      return 1
-    else:
-      max_id = max(int(task["id"]) for task in tasks)
-      return max_id + 1
-
 print(generate_id())
       
 sample_data = {
