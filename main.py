@@ -34,13 +34,9 @@ def main():
 def generate_id():
   
     tasks = read()
-    ids = []
+    max_id = max(int(task["id"]) for task in tasks)
     
-    for task in tasks:
-       ids.append(int(task["id"]))
-       
-    print(max(ids))
-    print(ids)
+    print(max_id)
 
 generate_id()
       
