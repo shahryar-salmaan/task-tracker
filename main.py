@@ -34,17 +34,15 @@ def main():
 def generate_id():
   
     tasks = read()
-    id = []
+    ids = []
     
     for task in tasks:
-       id.append(task["id"])
+       ids.append(int(task["id"]))
        
-    print(max(id))
+    print(max(ids))
+    print(ids)
 
-tasks = read()
-
-print(tasks)
-
+generate_id()
       
 sample_data = {
   "id": "1",
