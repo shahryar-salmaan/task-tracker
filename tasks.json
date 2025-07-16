@@ -1,28 +1,28 @@
 [
     {
         "id": "1",
-        "description": "Finish writing the blog post on JSON in Python",
+        "description": "buy milk",
         "status": "in-progress",
         "createdAt": "2025-07-12T14:30:00Z",
         "updatedAt": "2025-07-12T16:00:00Z"
     },
     {
         "id": "5",
-        "description": "Finish writing the blog post on JSON in Python",
+        "description": "eat snacks",
         "status": "in-progress",
         "createdAt": "2025-07-12T14:30:00Z",
         "updatedAt": "2025-07-12T16:00:00Z"
     },
     {
         "id": "7",
-        "description": "Finish writing the blog post on JSON in Python",
+        "description": "do dishes",
         "status": "in-progress",
         "createdAt": "2025-07-12T14:30:00Z",
         "updatedAt": "2025-07-12T16:00:00Z"
     },
     {
         "id": "16",
-        "description": "Finish writing the blog post on JSON in Python",
+        "description": "feed the pet",
         "status": "in-progress",
         "createdAt": "2025-07-12T14:30:00Z",
         "updatedAt": "2025-07-12T16:00:00Z"
