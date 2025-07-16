@@ -1,6 +1,9 @@
 import json
 import os
 
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
+
 WELCOME_MSG: str = ( 
       "Welcome to Task Tracker CLI\n"
       "Type 'help' to see all commands"
@@ -42,3 +45,12 @@ def generate_id():
     else:
       max_id = max(int(task["id"]) for task in tasks)
       return max_id + 1
+      
+      
+def get_time(type):
+  if type == "zulu":
+    return datetime.now(ZoneInfo("UTC")).isoformat().replace("+00:00", "Z")
+  elif type == "utc":
+    return datetime.now(ZoneInfo("UTC")).isoformat()
+  elif type == "bd":
+    return datetime.now(ZoneInfo("Asia/Dhaka")).isoformat()
