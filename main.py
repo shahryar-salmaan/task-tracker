@@ -32,13 +32,6 @@ def main():
     else:
       print(f"{command}? That command isn't available.")
 
-def get_time(type):
-  if type == "zulu":
-    return datetime.now(ZoneInfo("UTC")).isoformat().replace("+00:00", "Z")
-  elif type == "utc":
-    return datetime.now(ZoneInfo("UTC")).isoformat()
-  elif type == "bd":
-    return datetime.now(ZoneInfo("Asia/Dhaka")).isoformat()
   
 print(get_time("zulu"))
 print(get_time("utc"))
