@@ -16,8 +16,20 @@ def get_input():
   
 
 def add(input_as_list):
+      id = generate_id()
       task_description = get_description(input_as_list)
+      status = "in-progress"
+      createdAt = get_time("zulu")
+      updatedAt = None
       
+      task = {"id": id,
+              "description": task_description,
+              "status": status,
+              "createdAt": createdAt,
+              "updatedAt": updatedAt
+      }
+      
+      print(task)
 
 def main():
   while True:
@@ -32,11 +44,7 @@ def main():
     else:
       print(f"{command}? That command isn't available.")
 
-  
-print(get_time("zulu"))
-print(get_time("utc"))
-print(get_time("bd"))
-
+main()
       
 sample_data = {
   "id": "1",
