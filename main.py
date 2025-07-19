@@ -19,7 +19,7 @@ def add(input_as_list):
       id = generate_id()
       task_description = get_description(input_as_list)
       status = "in-progress"
-      createdAt = get_time("zulu")
+      createdAt = get_time("utc")
       updatedAt = None
       
       task = {"id": f"{id}",
@@ -38,15 +38,24 @@ def add(input_as_list):
       print(f"Task added successfully (ID: {id})")
       
       
-def update(id):
-    updatedAt = get_time("zulu")
+def update(input_as_list):
+    new_input = input_as_list[1:]
+    task_description = get_description(new_input)
+    updatedAt = get_time("utc")
+     
+    id = new_input[0]
     
+    print(id)
+    print(task_description)
     tasks = read()
     
     for task in tasks:
       if task["id"] == id:
-       print(task)
-    
+       
+       task["description"] = task_description
+       task["updatedAt"] = updatedAt
+       write(tasks)
+       print(f"Task updated successfully (ID: {id})")
       
       
 def main():
@@ -59,6 +68,8 @@ def main():
       sys.exit()
     elif command == "add":  
       add(input_as_list)
+    elif command == "update":
+      update(input_as_list)
     else:
       print(f"{command}? That command isn't available.")
 
