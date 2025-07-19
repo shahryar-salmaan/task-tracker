@@ -29,7 +29,13 @@ def add(input_as_list):
               "updatedAt": updatedAt
       }
       
-      print(task)
+      tasks = read()
+      
+      tasks.append(task)
+      
+      write(tasks)
+      
+      print(f"Task added successfully (ID: {id})")
       
       
 def main():
@@ -54,15 +60,16 @@ sample_data = {
   "updatedAt": "2025-07-12T16:00:00Z"
 }
 
+main()
 
+
+"""
 dict_obj = read()
 dict_obj.append(sample_data)
 
 print(dict_obj)
 write(dict_obj)
 
-
-"""
 content.append(sample_data)
 
 with open("tasks.json", "w") as f:
