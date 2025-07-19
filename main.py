@@ -22,7 +22,7 @@ def add(input_as_list):
       createdAt = get_time("zulu")
       updatedAt = None
       
-      task = {"id": id,
+      task = {"id": f"{id}",
               "description": task_description,
               "status": status,
               "createdAt": createdAt,
@@ -38,6 +38,17 @@ def add(input_as_list):
       print(f"Task added successfully (ID: {id})")
       
       
+def update(id):
+    updatedAt = get_time("zulu")
+    
+    tasks = read()
+    
+    for task in tasks:
+      if task["id"] == id:
+       print(task)
+    
+      
+      
 def main():
   while True:
     input_as_list = get_input()
@@ -51,6 +62,7 @@ def main():
     else:
       print(f"{command}? That command isn't available.")
 
+main()
 
 sample_data = {
   "id": "1",
@@ -59,8 +71,6 @@ sample_data = {
   "createdAt": "2025-07-12T14:30:00Z",
   "updatedAt": "2025-07-12T16:00:00Z"
 }
-
-main()
 
 
 """
