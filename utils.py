@@ -36,6 +36,11 @@ def read():
           content = json.load(f)
           return content
           
+def write(dict_obj):
+  
+    with open("tasks.json", "w") as f:
+      json.dump(dict_obj, f, indent=2)
+          
 def generate_id():
   
     tasks = read()
