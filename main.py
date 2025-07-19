@@ -30,7 +30,8 @@ def add(input_as_list):
       }
       
       print(task)
-
+      
+      
 def main():
   while True:
     input_as_list = get_input()
@@ -44,8 +45,7 @@ def main():
     else:
       print(f"{command}? That command isn't available.")
 
-main()
-      
+
 sample_data = {
   "id": "1",
   "description": "Finish writing the blog post on JSON in Python",
@@ -53,6 +53,15 @@ sample_data = {
   "createdAt": "2025-07-12T14:30:00Z",
   "updatedAt": "2025-07-12T16:00:00Z"
 }
+
+
+dict_obj = read()
+dict_obj.append(sample_data)
+
+print(dict_obj)
+write(dict_obj)
+
+
 """
 content.append(sample_data)
 
