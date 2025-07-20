@@ -57,7 +57,24 @@ def update(input_as_list):
        write(tasks)
        print(f"Task updated successfully (ID: {id})")
       
-      
+
+def delete(input_as_list):
+  
+  tasks = read()
+  
+  id = input_as_list[1]
+  
+  index_to_del = None
+  
+  for index, task in enumerate(tasks):
+    if task["id"] == id:
+      index_to_del = index
+      break
+    
+  del tasks[index_to_del]
+  write(tasks)
+  print(f"Task deleted successfully (ID: {id})")
+    
 def main():
   while True:
     input_as_list = get_input()
@@ -70,6 +87,8 @@ def main():
       add(input_as_list)
     elif command == "update":
       update(input_as_list)
+    elif command == "delete":
+      delete(input_as_list)
     else:
       print(f"{command}? That command isn't available.")
 
