@@ -74,6 +74,18 @@ def delete(input_as_list):
   del tasks[index_to_del]
   write(tasks)
   print(f"Task deleted successfully (ID: {id})")
+
+
+def mark(input_as_list):
+  print(input_as_list)
+  
+  tasks = read()
+  
+  if input_as_list[0] == "mark-in-progress":
+    
+    for index, task in enumerate(tasks):
+      print(index, task)
+
     
 def main():
   while True:
@@ -89,6 +101,8 @@ def main():
       update(input_as_list)
     elif command == "delete":
       delete(input_as_list)
+    elif command.startswith("mark"):
+      mark(input_as_list)
     else:
       print(f"{command}? That command isn't available.")
 
