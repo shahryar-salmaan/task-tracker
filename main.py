@@ -77,15 +77,24 @@ def delete(input_as_list):
 
 
 def mark(input_as_list):
-  print(input_as_list)
   
   tasks = read()
+  id = input_as_list[1]
   
-  if input_as_list[0] == "mark-in-progress":
+  target_id = None
+  
+  for index, task in enumerate(tasks):
+    if task["id"] == id:
+      target_id = index
+      break
     
-    for index, task in enumerate(tasks):
-      print(index, task)
-
+  if input_as_list[0] == "mark-in-progress":
+    tasks[target_id]["status"] = "in-progress"
+  elif input_as_list[0] == "mark-done":
+    tasks[target_id]["status"] = "done"
+    
+  write(tasks)
+  print(f"Task marked successfully (ID: {id})")
     
 def main():
   while True:
