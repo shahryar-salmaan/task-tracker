@@ -115,7 +115,13 @@ def main():
     else:
       print(f"{command}? That command isn't available.")
 
-main()
+def list_tasks():
+  tasks = read()
+  
+  for task in tasks:
+    print(task["id"], task["description"], task["status"])
+    
+list_tasks()
 
 sample_data = {
   "id": "1",
