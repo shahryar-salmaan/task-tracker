@@ -3,6 +3,7 @@ import sys
 
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
+from pathlib import Path
 
 from utils import *
 
@@ -111,7 +112,11 @@ def list_tasks(input_as_list):
   elif input_as_list[0] == "list":
       for task in tasks:
         print(task["id"], task["description"], task["status"])
-    
+  
+if not Path("tasks.json").exists():
+  with open("tasks.json", "w") as f:
+    json.dump([], f)
+
 def main():
   while True:
     input_as_list = get_input()
