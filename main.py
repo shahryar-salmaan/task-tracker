@@ -132,29 +132,7 @@ def main():
       list_tasks(input_as_list)
     else:
       print(f"{command}? That command isn't available.")
+      
 
-main()
-
-sample_data = {
-  "id": "1",
-  "description": "Finish writing the blog post on JSON in Python",
-  "status": "in-progress",
-  "createdAt": "2025-07-12T14:30:00Z",
-  "updatedAt": "2025-07-12T16:00:00Z"
-}
-
-
-"""
-dict_obj = read()
-dict_obj.append(sample_data)
-
-print(dict_obj)
-write(dict_obj)
-
-content.append(sample_data)
-
-with open("tasks.json", "w") as f:
-  json.dump(content, f, indent=4)
-
-print(content)
-    """
+if __name__ == "__main__":
+  main()
