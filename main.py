@@ -95,6 +95,22 @@ def mark(input_as_list):
     
   write(tasks)
   print(f"Task marked successfully (ID: {id})")
+
+
+def list_tasks(input_as_list):
+  tasks = read()
+  if len(input_as_list) > 1: 
+    if input_as_list[0] == "list" and input_as_list[1] == "done":
+      for task in tasks:
+        if task["status"] == "done":
+          print(task["id"], task["description"], task["status"])
+    elif input_as_list[0] == "list" and input_as_list[1] == "todo" or "in-progress":
+      for task in tasks:
+        if task["status"] == "in-progress":
+          print(task["id"], task["description"], task["status"])
+  elif input_as_list[0] == "list":
+      for task in tasks:
+        print(task["id"], task["description"], task["status"])
     
 def main():
   while True:
@@ -112,16 +128,12 @@ def main():
       delete(input_as_list)
     elif command.startswith("mark"):
       mark(input_as_list)
+    elif command == "list":
+      list_tasks(input_as_list)
     else:
       print(f"{command}? That command isn't available.")
 
-def list_tasks():
-  tasks = read()
-  
-  for task in tasks:
-    print(task["id"], task["description"], task["status"])
-    
-list_tasks()
+main()
 
 sample_data = {
   "id": "1",
