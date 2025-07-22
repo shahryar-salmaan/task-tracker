@@ -40,22 +40,26 @@ def add(input_as_list):
       
       
 def update(input_as_list):
-    new_input = input_as_list[1:]
-    task_description = get_description(new_input)
-    updatedAt = get_time("utc")
-     
-    id = new_input[0]
-    
-    tasks = read()
-    
-    for task in tasks:
-      if task["id"] == id:
-       
-       task["description"] = task_description
-       task["updatedAt"] = updatedAt
-       write(tasks)
-       print(f"Task updated successfully (ID: {id})")
-      
+  try:
+        new_input = input_as_list[1:]
+        task_description = get_description(new_input)
+        updatedAt = get_time("utc")
+        id = new_input[0]
+        
+        if task_description == "":
+          print("Please provide a task description.")
+          return
+        tasks = read()
+        
+        for task in tasks:
+          if task["id"] == id:
+           
+           task["description"] = task_description
+           task["updatedAt"] = updatedAt
+           write(tasks)
+           print(f"Task updated successfully (ID: {id})")
+  except:
+    print("Invalid input. Example: update [task-id] [task-description]")
 
 def delete(input_as_list):
   
