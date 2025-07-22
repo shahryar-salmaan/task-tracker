@@ -98,18 +98,20 @@ def mark(input_as_list):
 
 def list_tasks(input_as_list):
   tasks = read()
+  print("".center(40, "-"))
   if len(input_as_list) > 1: 
     if input_as_list[0] == "list" and input_as_list[1] == "done":
       for task in tasks:
         if task["status"] == "done":
-          print(task["id"], task["description"], task["status"])
+          print(task["id"] + ".", task["description"].capitalize(),"-", task["status"].capitalize())
     elif input_as_list[0] == "list" and input_as_list[1] == "todo" or "in-progress":
       for task in tasks:
         if task["status"] == "in-progress":
-          print(task["id"], task["description"], task["status"])
+          print(task["id"] + ".", task["description"].capitalize(),"-", task["status"].capitalize())
   elif input_as_list[0] == "list":
       for task in tasks:
-        print(task["id"], task["description"], task["status"])
+        print(task["id"] + ".", task["description"].capitalize(),"-", task["status"].capitalize())
+  print("".center(40, "-"))
   
 if not Path("tasks.json").exists():
   with open("tasks.json", "w") as f:
