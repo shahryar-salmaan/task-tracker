@@ -29,6 +29,36 @@ task-cli > mark-done 1
 # Output: Task marked successfully (ID: 1)
 ```
 - To list down task, use: `list`
+```bash
+task-cli > list 
+
+# Output:
+----------------------------------------
+1. Buy milk - Done
+2. Eat soda - In-progress
+3. Fix keyboard - Done
+4. Go outside - In-progress
+----------------------------------------
+```
 - You can also specify the status like: `list done` for completed tasks and `list todo` or `list in-progress` for in progress tasks.
+
+```bash
+task-cli > list done
+
+# Output:
+----------------------------------------
+1. Buy milk - Done
+3. Fix keyboard - Done
+----------------------------------------
+```
+```bash
+task-cli > list todo 
+
+# Output:
+----------------------------------------
+2. Eat soda - In-progress
+4. Go outside - In-progress
+----------------------------------------
+```
 ---
 Idea taken from [Task Tracker](https://roadmap.sh/projects/task-tracker) and built as a personalized CLI tool.
