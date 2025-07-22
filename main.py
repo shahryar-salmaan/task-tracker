@@ -46,8 +46,6 @@ def update(input_as_list):
      
     id = new_input[0]
     
-    print(id)
-    print(task_description)
     tasks = read()
     
     for task in tasks:
